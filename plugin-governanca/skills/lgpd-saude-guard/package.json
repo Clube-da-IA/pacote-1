@@ -1,0 +1,34 @@
+{
+  "name": "lgpd-saude-guard",
+  "version": "1.0.0",
+  "description": "Portão de segurança e conformidade regulatória (LGPD/CFM 2.454) para projetos de saúde digital",
+  "type": "commonjs",
+  "main": "detector.js",
+  "bin": {
+    "lgpd-saude-guard": "detector.js"
+  },
+  "scripts": {
+    "audit": "node detector.js",
+    "test": "node detector.js ./tests"
+  },
+  "keywords": [
+    "lgpd",
+    "cfm",
+    "saúde",
+    "segurança",
+    "compliance",
+    "auditoria",
+    "regulação"
+  ],
+  "author": "Clube da IA × Endolife Health-Tech",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "SKILL.md",
+    "detector.js",
+    "lgpd-saude-guard-reference.md",
+    "package.json"
+  ]
+}

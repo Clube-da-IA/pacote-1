@@ -1,0 +1,22 @@
+{
+  "name": "clube-ia-governanca",
+  "version": "1.3.1",
+  "description": "Pipeline de governanca de projetos de saude digital do Clube da IA (Endolife Health-Tech x Inova UNIMES). Reune as 9 skills que levam um projeto da ideia ao arquivo, com portoes de qualidade, LGPD/CFM, seguranca, resiliencia e observabilidade.",
+  "repository": "https://github.com/Clube-da-IA/pacote-1",
+  "author": {
+    "name": "Clube da IA — Endolife Health-Tech x Inova UNIMES"
+  },
+  "keywords": [
+    "governanca",
+    "saude-digital",
+    "lgpd",
+    "cfm-2454",
+    "seguranca",
+    "resiliencia",
+    "observabilidade",
+    "pipeline",
+    "clube-da-ia",
+    "endolife",
+    "inova-unimes"
+  ]
+}

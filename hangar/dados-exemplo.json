@@ -1,0 +1,212 @@
+{
+  "base": "Minha Base",
+  "versaoDados": "0.2",
+  "atualizadoEm": "2026-08-31",
+  "naves": [
+    {
+      "id": "agenda-da-clinica",
+      "nome": "Agenda da Clínica",
+      "tipo": "App · Saúde",
+      "status": "operacional",
+      "descricao": "EXEMPLO. Agenda de consultas com ficha da paciente. É o caso mais comum do clube: app na internet, com banco de dados e informação de paciente dentro. Edite ou exclua esta nave e cadastre a sua.",
+      "arquitetura": {
+        "resumo": "A pessoa abre o site, entra com e-mail e senha, e vê só a agenda dela. O site conversa com um banco de dados na nuvem, onde ficam guardadas as consultas e as fichas.",
+        "mermaid": "graph LR; U[Recepção] --> APP[Site da agenda]; APP --> AUTH[Login]; APP --> DB[(Banco na nuvem)]"
+      },
+      "stack": {
+        "frontend": "Next.js (React)",
+        "backend": "Rotas do próprio Next.js",
+        "banco": "Postgres (Supabase, região São Paulo)",
+        "hospedagem": "Vercel",
+        "servicos": ["Supabase Auth (login)"],
+        "modelosIA": []
+      },
+      "autenticacao": {
+        "metodo": "E-mail e senha; cada pessoa só enxerga a agenda da própria clínica.",
+        "ondeMoramAsChaves": "Nas variáveis de ambiente do Vercel e do Supabase. Anote só ONDE elas moram — a chave em si nunca entra aqui.",
+        "observacao": "Acesso de administrador ainda sem segundo fator. Está na lista de reparos."
+      },
+      "banco": {
+        "tipo": "Postgres (Supabase)",
+        "ondeMora": "Nuvem do Supabase, região São Paulo",
+        "dados": "Nome, telefone, data da consulta e observações clínicas das pacientes.",
+        "sensibilidadeLGPD": "alta",
+        "backup": "Backup diário automático do Supabase, com 7 dias de histórico. Restauração nunca foi testada."
+      },
+      "infra": {
+        "vpsServidor": "—",
+        "docker": false,
+        "dominio": "agenda.exemplo.com.br",
+        "comoPublica": "Um `git push` na branch principal publica sozinho no Vercel."
+      },
+      "cicd": {
+        "nivel": 1,
+        "automatico": ["publicação no Vercel a cada push"],
+        "manual": ["testes", "revisão antes de publicar"]
+      },
+      "recursos": {
+        "cpu": "—",
+        "ram": "—",
+        "armazenamento": "2 GB no banco",
+        "nota": "Hospedagem sem servidor próprio — o Vercel dimensiona sozinho."
+      },
+      "custos": [
+        { "servico": "Vercel (Hobby)", "valorMensal": 0, "moeda": "BRL" },
+        { "servico": "Supabase (Pro)", "valorMensal": 140, "moeda": "BRL" }
+      ],
+      "isolamento": {
+        "tipo": "compartilhado",
+        "motivo": "Começou no hangar compartilhado porque era mais barato. Como guarda dado de paciente, essa escolha precisa ser revista — veja o alerta que o HANGAR levantou no Diagnóstico da frota."
+      },
+      "git": {
+        "repo": "github.com/SEU_USUARIO/agenda-da-clinica",
+        "fluxo": "github-flow",
+        "producao": "main",
+        "ultimaVersao": "v1.2.0"
+      },
+      "saude": {
+        "dividaTecnica": "Restauração do backup nunca foi testada de verdade; administrador sem segundo fator.",
+        "bugsConhecidos": ["Ao remarcar uma consulta, o horário antigo às vezes continua aparecendo até recarregar a página."],
+        "ultimaInspecao": "2026-08-20"
+      },
+      "diario": [
+        { "data": "2026-08-20", "nota": "Rodei o portão de segurança do plugin. Achado principal: falta segundo fator no acesso de administrador." },
+        { "data": "2026-07-30", "nota": "Entrou no ar para a primeira clínica." }
+      ]
+    },
+    {
+      "id": "calculadora-de-reembolso",
+      "nome": "Calculadora de Reembolso",
+      "tipo": "App · Saúde",
+      "status": "operacional",
+      "descricao": "EXEMPLO. Site de uma página só que monta o pedido de reembolso em PDF. Não guarda nada: tudo acontece dentro do navegador e some ao fechar a aba. É o caso do projeto sem banco de dados.",
+      "arquitetura": {
+        "resumo": "A pessoa preenche o formulário na tela, o próprio navegador monta o PDF e oferece o download. Nada é enviado para nenhum servidor nosso — nem o texto, nem o PDF.",
+        "mermaid": "graph LR; U[Paciente] --> APP[Site de uma página]; APP --> PDF[PDF gerado no navegador]; APP -.chave da pessoa.-> IA[IA opcional]"
+      },
+      "stack": {
+        "frontend": "React (Vite)",
+        "backend": "—",
+        "banco": "Nenhum — nada fica guardado",
+        "hospedagem": "Vercel",
+        "servicos": [],
+        "modelosIA": ["IA opcional, com a chave da própria pessoa (BYOK)"]
+      },
+      "autenticacao": {
+        "metodo": "Nenhuma — o site é aberto e não tem área privada.",
+        "ondeMoramAsChaves": "Não guardamos chave nenhuma. Se a pessoa usa a IA, ela digita a própria chave na hora e a chave fica só na memória da aba.",
+        "observacao": "Como não há login nem banco, não há conta para invadir."
+      },
+      "banco": {
+        "tipo": "Nenhum",
+        "ondeMora": "Em lugar nenhum — os dados vivem só na memória da aba aberta.",
+        "dados": "Os dados que a pessoa digita para montar o pedido. Somem ao fechar a aba.",
+        "sensibilidadeLGPD": "alta",
+        "backup": "Não se aplica: não há dado guardado para copiar. O que precisa de cópia é o código e as tabelas de referência, que ficam no repositório."
+      },
+      "infra": {
+        "vpsServidor": "—",
+        "docker": false,
+        "dominio": "reembolso.exemplo.com.br",
+        "comoPublica": "Um `git push` na branch principal publica sozinho no Vercel."
+      },
+      "cicd": {
+        "nivel": 1,
+        "automatico": ["publicação no Vercel a cada push"],
+        "manual": ["conferir o PDF gerado antes de publicar"]
+      },
+      "recursos": {
+        "cpu": "—",
+        "ram": "—",
+        "armazenamento": "—",
+        "nota": "Site estático: não há servidor nosso ligado em lugar nenhum."
+      },
+      "custos": [{ "servico": "Vercel (Hobby)", "valorMensal": 0, "moeda": "BRL" }],
+      "isolamento": {
+        "tipo": "doca-propria",
+        "motivo": "Tem hospedagem própria por ser um endereço público com marca própria — mas, sem banco e sem login, o risco de vazamento em repouso simplesmente não existe aqui."
+      },
+      "git": {
+        "repo": "github.com/SEU_USUARIO/calculadora-de-reembolso",
+        "fluxo": "github-flow",
+        "producao": "main",
+        "ultimaVersao": "v0.6.0"
+      },
+      "saude": {
+        "dividaTecnica": "Ninguém declarou ainda onde o PDF emitido é arquivado depois que a pessoa baixa — a obrigação de guarda continua existindo mesmo o app não guardando nada.",
+        "bugsConhecidos": [],
+        "ultimaInspecao": "2026-08-18"
+      },
+      "diario": [
+        { "data": "2026-08-18", "nota": "Portão de resiliência apontou: o app não guarda nada (ótimo), mas o arquivo baixado vira responsabilidade de quem baixou. A decidir." }
+      ]
+    },
+    {
+      "id": "boletim-semanal",
+      "nome": "Boletim Semanal",
+      "tipo": "Agente · Conteúdo",
+      "status": "operacional",
+      "descricao": "EXEMPLO. Um roteiro com IA que lê as novidades da semana e monta um boletim em texto. Roda na sua própria máquina, quando você manda. É o caso do projeto sem site e sem servidor.",
+      "arquitetura": {
+        "resumo": "Você pede o boletim. O roteiro lê as fontes que você cadastrou, pede à IA para resumir e grava um arquivo de texto na sua pasta. Nada vai para a internet além da conversa com a IA.",
+        "mermaid": "graph LR; V[Você pede] --> R[Roteiro na sua máquina]; R --> IA[IA resume]; R --> ARQ[Arquivo de texto na pasta]"
+      },
+      "stack": {
+        "frontend": "—",
+        "backend": "—",
+        "banco": "Arquivos de texto na própria pasta",
+        "hospedagem": "Roda na sua máquina, sob demanda",
+        "servicos": [],
+        "modelosIA": ["Claude"]
+      },
+      "autenticacao": {
+        "metodo": "Nenhuma — roda só na sua máquina, para você.",
+        "ondeMoramAsChaves": "A chave da IA fica numa variável de ambiente da sua máquina. Nunca dentro do código, nunca no repositório.",
+        "observacao": "—"
+      },
+      "banco": {
+        "tipo": "Arquivos na pasta do projeto",
+        "ondeMora": "Na sua máquina",
+        "dados": "Só textos públicos e os boletins já gerados. Nenhum dado de paciente.",
+        "sensibilidadeLGPD": "nenhuma",
+        "backup": "Vai junto no `git push` para o repositório."
+      },
+      "infra": {
+        "vpsServidor": "—",
+        "docker": false,
+        "dominio": "—",
+        "comoPublica": "Não publica: o resultado é um arquivo que você lê e envia por onde quiser."
+      },
+      "cicd": {
+        "nivel": 0,
+        "automatico": [],
+        "manual": ["rodar o roteiro", "revisar o texto antes de enviar"]
+      },
+      "recursos": {
+        "cpu": "—",
+        "ram": "—",
+        "armazenamento": "Alguns megabytes de texto",
+        "nota": "Não fica ligado: só consome quando você roda."
+      },
+      "custos": [{ "servico": "IA (cobrada por uso)", "valorMensal": 25, "moeda": "BRL" }],
+      "isolamento": {
+        "tipo": "compartilhado",
+        "motivo": "Sem dado sensível, sem precisar ficar de pé o tempo todo e sem receber acesso de fora."
+      },
+      "git": {
+        "repo": "github.com/SEU_USUARIO/boletim-semanal",
+        "fluxo": "github-flow",
+        "producao": "main",
+        "ultimaVersao": "v0.3.0"
+      },
+      "saude": {
+        "dividaTecnica": "O texto da IA ainda precisa de revisão humana toda semana — nada é enviado automaticamente.",
+        "bugsConhecidos": [],
+        "ultimaInspecao": "2026-08-25"
+      },
+      "diario": [
+        { "data": "2026-08-25", "nota": "Boletim da semana saiu redondo. Custo do mês continua abaixo de R$ 30." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- HANGAR · ícone HOLOCRON: baia de hangar com nave decolando -->
+  <defs>
+    <radialGradient id="fundo" cx="50%" cy="30%" r="90%">
+      <stop offset="0%" stop-color="#0B1E3F"/>
+      <stop offset="100%" stop-color="#050B1A"/>
+    </radialGradient>
+    <linearGradient id="saber" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00C2FF"/>
+      <stop offset="100%" stop-color="#2EA6D8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#fundo)"/>
+  <rect x="14" y="14" width="484" height="484" rx="100" fill="none" stroke="#1F3358" stroke-width="6"/>
+
+  <!-- arco da baia -->
+  <path d="M96 400 V262 a160 150 0 0 1 320 0 V400" fill="none" stroke="url(#saber)" stroke-width="26" stroke-linecap="round"/>
+  <!-- piso -->
+  <line x1="76" y1="400" x2="436" y2="400" stroke="#1F3358" stroke-width="16" stroke-linecap="round"/>
+  <line x1="150" y1="440" x2="362" y2="440" stroke="#1F3358" stroke-width="12" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- nave (triângulo estilizado) subindo -->
+  <path d="M256 148 L308 288 L256 258 L204 288 Z" fill="#F4F6FA"/>
+  <!-- rastro -->
+  <line x1="256" y1="300" x2="256" y2="352" stroke="#E8B547" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="256" cy="382" r="9" fill="#E8B547"/>
+
+  <!-- luz de status -->
+  <circle cx="404" cy="108" r="14" fill="#00C2FF"/>
+  <circle cx="404" cy="108" r="26" fill="none" stroke="#00C2FF" stroke-width="4" opacity="0.35"/>
+</svg>

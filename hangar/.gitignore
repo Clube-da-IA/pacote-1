@@ -1,0 +1,27 @@
+# Dependências e build (não vão pro GitHub)
+node_modules
+dist
+dist-ssr
+
+# Ambiente local — nunca versionar segredos
+.env
+.env.*
+!.env.example
+
+# Backups automáticos e temporário do salvamento (locais; o dados-hangar.json em si vai pro GitHub)
+dados-hangar.backup.json
+dados-hangar.*.backup.json
+dados-hangar.json.tmp
+
+# Kit de distribuição gerado (npm run empacotar)
+kit/
+
+# Sistema
+.DS_Store
+*.local
+
+# Logs
+npm-debug.log*
+
+# Worktrees locais
+.claude/

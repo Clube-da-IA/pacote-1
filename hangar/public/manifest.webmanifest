@@ -1,0 +1,17 @@
+{
+  "name": "HANGAR — Sala de Controle",
+  "short_name": "HANGAR",
+  "description": "Cada projeto é uma nave. Arquitetura, chaves, banco, custo e saúde — num lugar só.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050B1A",
+  "theme_color": "#050B1A",
+  "icons": [
+    {
+      "src": "/icone-hangar.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

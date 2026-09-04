@@ -1,0 +1,6 @@
+# artefatos de build (o pacote distribuido e gerado, nao versionado)
+dist/
+.DS_Store
+
+# conector local: o pacote distribuido NAO leva .mcp.json (ver README)
+.mcp.json
